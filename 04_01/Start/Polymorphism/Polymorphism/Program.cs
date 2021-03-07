@@ -8,7 +8,7 @@ namespace Polymorphism
         public virtual void CalculateWeeklySalary(int weeklyHours, int wage)
         {
             var salary = 40 * wage;
-            Console.WriteLine("\nThis ANGRY EMPLOYEE worked {0} hrs. " + 
+            Console.WriteLine("\nThis ANGRY EMPLOYEE worked {0} hrs. " +
                               "Paid for 40 hrs at $ {1}" +
                               "/hr = ${2} \n", weeklyHours, wage, salary);
             Console.WriteLine("---------------------------------------------\n");
@@ -20,7 +20,7 @@ namespace Polymorphism
         public override void CalculateWeeklySalary(int weeklyHours, int wage)
         {
             var salary = weeklyHours * wage;
-            Console.WriteLine("\nThis HAPPY CONTRACTOR worked {0} hrs. " + 
+            Console.WriteLine("\nThis HAPPY CONTRACTOR worked {0} hrs. " +
                               "Paid for {0} hrs at $ {1}" +
                               "/hr = ${2} ", weeklyHours, wage, salary);
             Console.WriteLine("---------------------------------------------\n");

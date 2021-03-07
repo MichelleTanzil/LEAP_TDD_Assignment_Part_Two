@@ -10,17 +10,17 @@ namespace PolymorphismTestProject
         [TestMethod]
         public void CalculateWeeklySalaryForEmployeeTest_70wage55hoursReturns2800Dollars()
         {
-            // Arrange  
+            // Arrange
             int weeklyHours = 55;
             int wage = 70;
             int salary = 40 * wage;
             Employee e = new Employee();
-            
-            string expectedResponse = String.Format("This ANGRY EMPLOYEE worked {0} hrs. " +
-                            "Paid for 40 hrs at $ {1}" +
-                            "/hr = ${2}", weeklyHours, wage, salary);
 
-            // Act   
+            string expectedResponse = $"This ANGRY EMPLOYEE worked {weeklyHours} hrs. " +
+                            $"Paid for 40 hrs at $ {wage}" +
+                            $"/hr = ${salary}";
+
+            // Act
             string response = e.CalculateWeeklySalary(weeklyHours, wage);
 
             // Assert
@@ -30,17 +30,17 @@ namespace PolymorphismTestProject
         [TestMethod]
         public void CalculateWeeklySalaryForContractorTest_70wage55hoursReturns3850Dollars()
         {
-            // Arrange  
+            // Arrange
             int weeklyHours = 55;
             int wage = 70;
             int salary = weeklyHours * wage;
             Contractor e = new Contractor();
 
-            string expectedResponse = String.Format("This HAPPY CONTRACTOR worked {0} hrs. " +
-                            "Paid for {0} hrs at $ {1}" +
-                            "/hr = ${2} ", weeklyHours, wage, salary);
+            string expectedResponse = $"This HAPPY CONTRACTOR worked {weeklyHours} hrs. " +
+                            $"Paid for {weeklyHours} hrs at $ {wage}" +
+                            $"/hr = ${salary} ";
 
-            // Act   
+            // Act
             string response = e.CalculateWeeklySalary(weeklyHours, wage);
 
             // Assert
@@ -50,17 +50,17 @@ namespace PolymorphismTestProject
         [TestMethod]
         public void CalculateWeeklySalaryForEmployeeTest_70wage55hoursDoesNotReturnCorrectString()
         {
-            // Arrange  
+            // Arrange
             int weeklyHours = 55;
             int wage = 70;
             int salary = 40 * wage;
             Employee e = new Employee();
 
-            string expectedResponse = String.Format("Problem 1-This ANGRY EMPLOYEE worked {0} hrs. " +
-                            "Paid for 40 hrs at $ {1}" +
-                            "/hr = ${2}", weeklyHours, wage, salary);
+            string expectedResponse = $"Problem 1-This ANGRY EMPLOYEE worked {weeklyHours} hrs. " +
+                            $"Paid for 40 hrs at $ {wage}" +
+                            $"/hr = ${salary}";
 
-            // Act   
+            // Act
             string response = e.CalculateWeeklySalary(weeklyHours, wage);
 
             // Assert
@@ -70,17 +70,17 @@ namespace PolymorphismTestProject
         [TestMethod]
         public void CalculateWeeklySalaryForContractorTest_70wage55hoursDoesNotReturnCorrectString()
         {
-            // Arrange  
+            // Arrange
             int weeklyHours = 55;
             int wage = 70;
             int salary = weeklyHours * wage;
             Contractor e = new Contractor();
 
-            string expectedResponse = String.Format("Problem 2-This HAPPY CONTRACTOR worked {0} hrs. " +
-                            "Paid for {0} hrs at $ {1}" +
-                            "/hr = ${2} ", weeklyHours, wage, salary);
+            string expectedResponse = $"Problem 2-This HAPPY CONTRACTOR worked {weeklyHours} hrs. " +
+                            $"Paid for {weeklyHours} hrs at $ {wage}" +
+                            $"/hr = ${salary} ";
 
-            // Act   
+            // Act
             string response = e.CalculateWeeklySalary(weeklyHours, wage);
 
             // Assert

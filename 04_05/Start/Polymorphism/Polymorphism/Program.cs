@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Moq;
+using System;
 using System.Collections.Generic;
 
 namespace Polymorphism
@@ -37,22 +38,31 @@ namespace Polymorphism
         private static void Main(string[] args)
         {
             const int hours = 55, wage = 70;
-            List<Employee> employees = Utils.GetEmployees();
+            //List<Employee> employees = Utils.GetEmployees();
+            var mock = new Mock<Utils>();
+            mock.Setup(m => m.GetMockEmployees()).Returns(() =>
+            new List<Employee> { new Contractor(), new Employee()});
+
+            List<Employee> employees = mock.Object.GetMockEmployees();
 
             foreach (var e in employees)
             {
                 e.CalculateWeeklySalary(hours, wage);
             }
-        }        
+        }
     }
 
-    public static class Utils {
-        public static List<Employee> GetEmployees()
+    public class Utils {
+        //public static List<Employee> GetEmployees()
+        //{
+        //    var someEmployee = new Employee();
+        //    var someContractor = new Contractor();
+        //    var everyone = new List<Employee> { someEmployee, someContractor };
+        //    return everyone;
+        //}
+        public virtual List<Employee> GetMockEmployees()
         {
-            var someEmployee = new Employee();
-            var someContractor = new Contractor();
-            var everyone = new List<Employee> { someEmployee, someContractor };
-            return everyone;
+            throw new NotImplementedException();
         }
     }
 }

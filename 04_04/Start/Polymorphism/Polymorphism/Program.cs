@@ -8,7 +8,7 @@ namespace Polymorphism
         public virtual string CalculateWeeklySalary(int weeklyHours, int wage)
         {
             var salary = 40 * wage;
-            string result = String.Format("This ANGRY EMPLOYEE worked {0} hrs. " + 
+            string result = String.Format("This ANGRY EMPLOYEE worked {0} hrs. " +
                             "Paid for 40 hrs at $ {1}" +
                             "/hr = ${2}", weeklyHours, wage, salary);
             Console.WriteLine("\n" + result + " \n");
@@ -22,7 +22,7 @@ namespace Polymorphism
         public override string CalculateWeeklySalary(int weeklyHours, int wage)
         {
             var salary = weeklyHours * wage;
-            string result = String.Format("This HAPPY CONTRACTOR worked {0} hrs. " + 
+            string result = String.Format("This HAPPY CONTRACTOR worked {0} hrs. " +
                             "Paid for {0} hrs at $ {1}" +
                             "/hr = ${2} ", weeklyHours, wage, salary);
             Console.WriteLine("\n" + result + " \n");
@@ -37,7 +37,7 @@ namespace Polymorphism
         private static void Main(string[] args)
         {
             const int hours = 55, wage = 70;
-            List<Employee> employees = GetEmployees();
+            List<Employee> employees = Utils.GetEmployees();
 
             foreach (var e in employees)
             {
@@ -45,12 +45,14 @@ namespace Polymorphism
             }
         }
 
-        private static List<Employee> GetEmployees()
-        {
-            var someEmployee = new Employee();
-            var someContractor = new Contractor();
-            var everyone = new List<Employee> { someEmployee, someContractor };
-            return everyone;
+        public static class Utils {
+            public static List<Employee> GetEmployees()
+            {
+                var someEmployee = new Employee();
+                var someContractor = new Contractor();
+                var everyone = new List<Employee> { someEmployee, someContractor };
+                return everyone;
+            }
         }
     }
 
